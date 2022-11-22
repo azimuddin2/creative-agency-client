@@ -1,0 +1,120 @@
+.banner {
+    background-color: #FBD062;
+    position: relative;
+    width: 100%;
+    height: 530px;
+    -webkit-clip-path: polygon(100% 0, 100% calc(100% - 40px), 0 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% calc(100% - 100px), 0 100%, 0 100%, 0 0);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.banner-info {
+    width: 60%;
+    margin-top: 100px;
+}
+
+.banner-image {
+    margin-top: 30px;
+    margin-left: -40px;
+}
+
+.banner-info h1 {
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+}
+
+.banner-info p {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0.005em;
+}
+
+.button {
+    background-color: #111430;
+    color: #ffffff;
+    padding: 6px 40px;
+    border-radius: 5px;
+    border: none;
+}
+
+.banner-image img {
+    width: 100%;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .banner {
+        height: 100%;
+        -webkit-clip-path: polygon(100% 0, 100% calc(100% - 0px), 0 100%, 0 100%, 0 0);
+        clip-path: polygon(100% 0, 100% calc(100% - 0px), 0 100%, 0 100%, 0 0);
+    }
+
+    .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .banner-info {
+        position: relative;
+        top: 270px;
+    }
+
+    .banner-image {
+        position: relative;
+        bottom: 280px;
+        margin-top: 80px;
+        margin-left: 0px;
+    }
+
+    .banner-image img {
+        width: 100%;
+    }
+
+    .banner-info {
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .banner-info h1 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* responsive tablet device */
+@media only screen and (min-width:688px) and (max-width:992px) {
+    .banner {
+        background-color: #FBD062;
+        position: relative;
+        width: 100%;
+        height: 370px;
+    }
+    
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .banner-info {
+        width: 100%;
+        margin-top: 40px;
+    }
+    
+    .banner-image {
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+    
+    .banner-info h1 {
+        font-size: 30px;
+    }
+}

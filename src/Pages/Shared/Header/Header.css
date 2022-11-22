@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #FBD062;
+}
+
+.logo{
+    width: 150px;
+    height: 42px;
+}
+
+.login{
+    background-color: #111430;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.navbar-menu {
+    color: #474747;
+}
