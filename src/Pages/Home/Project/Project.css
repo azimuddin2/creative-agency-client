@@ -1,0 +1,24 @@
+.project{
+    background-color: #ffffff;
+    margin-bottom: 60px;
+    height: 385px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.project-image img {
+    width: 100%;
+}
+
+.project h3{
+    color: #3c4b64;
+    font-size: 20px;
+    font-weight:600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.project p{
+    color: #3c4b64;
+    font-size: 14px;
+}

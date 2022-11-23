@@ -1,0 +1,29 @@
+.projects-section{
+    background-color: #111430;
+    margin: 80px 0px;
+}
+
+.project-title{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 60px;
+    font-size: 34px;
+    font-weight:600;
+    padding-bottom: 40px;
+}
+
+.project-title span{
+    color: #7AB259;
+}
+
+.projects{
+    padding-bottom: 40px;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .project-title span{
+        display: block;
+    }
+}
