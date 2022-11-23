@@ -7,7 +7,7 @@
     clip-path: polygon(100% 0, 100% calc(100% - 100px), 0 100%, 0 100%, 0 0);
 }
 
-.container {
+.banner-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
@@ -58,7 +58,7 @@
         clip-path: polygon(100% 0, 100% calc(100% - 0px), 0 100%, 0 100%, 0 0);
     }
 
-    .container {
+    .banner-section {
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -91,7 +91,7 @@
 
 
 /* responsive tablet device */
-@media only screen and (min-width:688px) and (max-width:992px) {
+@media only screen and (min-width:577px) and (max-width:992px) {
     .banner {
         background-color: #FBD062;
         position: relative;
@@ -99,7 +99,7 @@
         height: 370px;
     }
     
-    .container {
+    .banner-section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }

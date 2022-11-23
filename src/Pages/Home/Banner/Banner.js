@@ -5,7 +5,7 @@ import './Banner.css';
 const Banner = () => {
     return (
         <div className='banner'>
-            <div className='container'>
+            <div className='container banner-section'>
                 <div className='banner-info'>
                     <h1>Let’s Grow Your Brand To The Next Level</h1>
                     <p>A creative agency is a term for an agency that offers a variety of services that fall under the umbrella of marketing and advertising.</p>

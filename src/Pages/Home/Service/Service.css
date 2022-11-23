@@ -1,0 +1,22 @@
+.service {
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.service-image img {
+    width: 74px;
+}
+
+.service-info h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
+    letter-spacing: 0.396px;
+    color: #111430;
+}
+
+.service-info p {
+    color: rgba(0, 0, 0, 0.7);
+}
