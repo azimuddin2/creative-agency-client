@@ -11,9 +11,25 @@
     background-color: #111430;
     border-radius: 5px;
     text-align: center;
-    color: #ffffff;
+    color: #ffffff !important;
+    padding: 6px 30px !important;
 }
 
-.navbar-menu {
+.navbar-menu a{
     color: #474747;
+    font-weight: 400;
+    margin-right: 20px;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .login{
+        padding: 8px 30px !important;
+    }
+
+    .navbar-menu a{
+        text-align: center;
+        margin-right: 0px;
+    }
 }
