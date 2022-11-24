@@ -1,0 +1,37 @@
+.review {
+    padding: 20px;
+    padding-bottom: 10px;
+    border: 1px solid #BFBFBF;
+    border-radius: 5px;
+}
+
+.review-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.review-image img {
+    width: 64px;
+    margin-right: 18px;
+}
+
+.client-title h5 {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.client-title h6 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.review-description {
+    color: #707070;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.005em;
+}

@@ -1,0 +1,33 @@
+.client-title{
+    font-size: 36px;
+    font-weight: 600;
+    color: #171B4E;
+    text-align: center;
+}
+
+.client-title span{
+    color: #7AB259;
+}
+
+.reviews{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 26px;
+    margin: 50px 0px;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .reviews{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/* responsive tablet device */
+@media only screen and (min-width:577px) and (max-width:992px) {
+    .reviews{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
