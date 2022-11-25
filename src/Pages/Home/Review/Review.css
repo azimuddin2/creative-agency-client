@@ -7,13 +7,19 @@
 
 .review-info {
     display: flex;
+    justify-content:space-between;
     align-items: center;
     margin-bottom: 18px;
 }
 
+.review-info-part{
+    display: flex;
+    align-items: center;
+}
+
 .review-image img {
     width: 64px;
-    margin-right: 18px;
+    margin-right: 12px;
 }
 
 .client-title h5 {
@@ -34,4 +40,8 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.005em;
+}
+
+.comma img{
+    width: 80%;
 }
