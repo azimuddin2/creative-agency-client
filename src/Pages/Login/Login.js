@@ -1,19 +1,16 @@
-import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import login from '../../assets/images/login.gif';
 
 const Login = () => {
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
     const navigate = useNavigate();
 
     const handleFormSubmit = event => {
         event.preventDefault();
 
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
+       const email = event.target.email.value;
+       const password = event.target.password.value;
 
         console.log(email, password)
     }
@@ -32,11 +29,11 @@ const Login = () => {
                     <h2 className='form-title'>Login</h2>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control ref={emailRef} type="email" placeholder="Email" required />
+                            <Form.Control name='email' type="email" placeholder="Email" required />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
+                            <Form.Control name='password' type="password" placeholder="Password" required />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicCheckbox">

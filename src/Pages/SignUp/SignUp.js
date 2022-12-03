@@ -1,21 +1,17 @@
-import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import signup from '../../assets/images/signup.gif';
 import './SignUp.css';
 
 const SignUp = () => {
-    const nameRef = useRef('');
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
     const navigate = useNavigate();
 
     const handleFormSubmit = event => {
         event.preventDefault();
 
-        const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
         console.log(name, email, password);
     }
@@ -35,15 +31,15 @@ const SignUp = () => {
                     <h2 className='form-title'>Sign Up</h2>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Control ref={nameRef} type="text" placeholder="Name" required />
+                            <Form.Control name='name' type="text" placeholder="Name" required />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control ref={emailRef} type="email" placeholder="Email" required />
+                            <Form.Control name='email' type="email" placeholder="Email" required />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
+                            <Form.Control name='password' type="password" placeholder="Password" required />
                         </Form.Group>
 
                         <Form.Group className="mb-4" controlId="formBasicCheckbox">
