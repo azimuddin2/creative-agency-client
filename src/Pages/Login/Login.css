@@ -1,0 +1,99 @@
+.login-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.login-image img {
+    width: 90%;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 50px;
+    margin-top: 50px;
+}
+
+.form-title {
+    font-size: 30px;
+    color: #2D2D2D;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #111430 !important;
+    border: none !important;
+    margin-bottom: 16px;
+}
+
+.account {
+    text-align: center;
+    font-size: 16px;
+    /* font-weight: 500; */
+}
+
+.account span {
+    color: #7AB259;
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .login-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .login-form {
+        padding: 40px 20px;
+        margin-top: -10px;
+
+    }
+
+    .form-title {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .login-image img {
+        width: 100%;
+    }
+
+    .login-image {
+        margin: auto;
+    }
+}
+
+
+/* responsive tablet device */
+@media only screen and (min-width:577px) and (max-width:992px) {
+    .login-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .login-form {
+        padding: 40px;
+        margin-top: -10px;
+
+    }
+
+    .form-title {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .login-image img {
+        width: 100%;
+    }
+
+    .login-image {
+        margin: auto;
+    }
+}

@@ -55,6 +55,16 @@ ul li{
     margin-left: 30px;
 }
 
+.social-icon{
+    margin-top: 30px;
+}
+
+.social-icon img{
+    margin-right: 10px;
+    width: 24px;
+    cursor: pointer;
+}
+
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
@@ -65,6 +75,10 @@ ul li{
 
     .company{
         margin-left: 0px;
+    }
+
+    .social-icon{
+        text-align: center;
     }
     
 }

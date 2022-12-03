@@ -2,11 +2,16 @@ import { faLocationDot, faEnvelope, faPhone, faLinkdin } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import logo from '../../../assets/logos/logo.png';
+import facebook from '../../../assets/icons/facebook.png';
+import linkedin from '../../../assets/icons/linkedin.png';
+import twitter from '../../../assets/icons/twitter.png';
+import instagram from '../../../assets/icons/instagram.png';
+import youtube from '../../../assets/icons/youtube.png';
 import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer id="/" className='container footer'>
+        <footer className='container footer'>
             <div className='footer-main-part'>
                 <div className='footer-first-part'>
                     <img className='logo' src={logo} alt="" />
@@ -38,7 +43,13 @@ const Footer = () => {
                 <div className='footer-third-part'>
                     <h5>About us</h5>
                     <p>Hello there. First, I will introduce myself. My name is Azim Uddin and I am a Full Stack web developer. I have 2+ years of experience in web programming.</p>
-                    {/* <FontAwesomeIcon icon={}></FontAwesomeIcon> */}
+                    <div className='social-icon'>
+                        <img src={facebook} alt="facebook" />
+                        <img src={linkedin} alt="linkedin" />
+                        <img src={twitter} alt="twitter" />
+                        <img src={instagram} alt="instagram" />
+                        <img src={youtube} alt="youtube" />
+                    </div>
                 </div>
             </div>
             <p className='copyright'><small>Copyright © 2023 Creative Agency</small></p>

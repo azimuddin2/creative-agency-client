@@ -20,7 +20,7 @@ const Header = () => {
                             <Nav.Link as={Link} to="/">Home</Nav.Link>
                             <Nav.Link href="/#project">Our Portfolio</Nav.Link>
                             <Nav.Link href="/#services">Our Services</Nav.Link>
-                            <Nav.Link href="#pricing">Contact Us</Nav.Link>
+                            <Nav.Link href="/#contact">Contact Us</Nav.Link>
                             <Nav.Link as={Link} className='login' to="/login"><span>Login</span> <FontAwesomeIcon className='icon' icon={faRightToBracket}></FontAwesomeIcon> </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
