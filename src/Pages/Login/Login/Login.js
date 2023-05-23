@@ -1,23 +1,30 @@
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css';
 import login from '../../../assets/images/login.gif';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
-    const navigate = useNavigate();
+    const { signIn } = useContext(AuthContext);
 
     const handleFormSubmit = event => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
-       const email = event.target.email.value;
-       const password = event.target.password.value;
-
-        console.log(email, password)
-    }
-
-    const navigateCreateAccount = () => {
-        navigate('/signup')
-    }
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
 
     return (
         <section className='container'>
@@ -42,7 +49,7 @@ const Login = () => {
 
                         <Button className='submit-button py-2' type="submit">LOGIN</Button>
                     </Form>
-                    <p className='account'>Don’t have an account? <span onClick={navigateCreateAccount}>Create an account</span></p>
+                    <p className='account'>Don’t have an account? <Link to='/signup'><span>Create an account</span></Link> </p>
                 </div>
             </div>
         </section>

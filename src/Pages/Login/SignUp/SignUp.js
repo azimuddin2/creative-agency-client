@@ -1,25 +1,32 @@
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import signup from '../../../assets/images/signup.gif';
 import './SignUp.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
-    const navigate = useNavigate();
+    const { createUser } = useContext(AuthContext);
 
     const handleFormSubmit = event => {
         event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
 
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-
-        console.log(name, email, password);
-    }
-
-    const navigateLogin = () => {
-        navigate('/login')
-    }
-
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success(`Create user successfully ${user?.email}`);
+                console.log(user)
+                form.reset();
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
 
     return (
         <section className='container'>
@@ -48,7 +55,7 @@ const SignUp = () => {
 
                         <Button className='submit-button py-2' type="submit">SIGN UP</Button>
                     </Form>
-                    <p className='account'>Already have an account? <span onClick={navigateLogin}>Login</span></p>
+                    <p className='account'>Already have an account? <Link to='/login'><span>Login</span></Link> </p>
                 </div>
             </div>
         </section>
