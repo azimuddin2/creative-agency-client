@@ -1,7 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import login from '../../assets/images/login.gif';
+import login from '../../../assets/images/login.gif';
 
 const Login = () => {
     const navigate = useNavigate();

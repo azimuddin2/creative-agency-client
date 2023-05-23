@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import signup from '../../assets/images/signup.gif';
+import signup from '../../../assets/images/signup.gif';
 import './SignUp.css';
 
 const SignUp = () => {
