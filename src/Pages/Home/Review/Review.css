@@ -19,7 +19,10 @@
 
 .review-image img {
     width: 64px;
+    height: 64px;
     margin-right: 12px;
+    border: 2px solid #7AB259;
+    border-radius: 100px;
 }
 
 .client-title h5 {

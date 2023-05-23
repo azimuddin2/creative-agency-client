@@ -1,9 +1,10 @@
 import React from 'react';
 import './Projects.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, A11y, Autoplay } from 'swiper';
+import { A11y, Autoplay, Navigation, Scrollbar } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 import project1 from '../../../assets/projects/project1.png'
 import project2 from '../../../assets/projects/project2.png'
 import project3 from '../../../assets/projects/project3.png'
@@ -64,7 +65,7 @@ const Projects = () => {
             title: 'Volunteer Network',
             description: "A simple website to manage volunteers. Where someone wants to be a volunteer can select from various volunteer jobs. You can book."
         },
-    ]
+    ];
 
     return (
         <section id='project' className='projects-section'>
@@ -72,6 +73,11 @@ const Projects = () => {
                 <h2 className='project-title'>Here are some of <span>our works</span></h2>
                 <div className='projects'>
                     <Swiper className="mySwiper"
+                        style={{
+                            "--swiper-navigation-color": "#fff",
+                            "--swiper-navigation-size": "18px",
+                            "--swiper-navigation-top-offset": "6%",
+                        }}
                         breakpoints={{
                             576: {
                                 width: 576,
@@ -88,13 +94,16 @@ const Projects = () => {
                             },
                         }}
 
-                        modules={[Pagination, A11y, Autoplay]}
+                        modules={[Navigation, A11y, Autoplay, Scrollbar]}
                         spaceBetween={24}
                         autoplay={{
                             delay: 2500,
                             disableOnInteraction: false,
                         }}
-                        pagination={{ clickable: true }}
+                        navigation={true}
+                        scrollbar={{
+                            hide: true,
+                        }}
                     >
                         <div>
                             {

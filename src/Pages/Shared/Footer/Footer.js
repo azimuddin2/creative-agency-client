@@ -1,4 +1,4 @@
-import { faLocationDot, faEnvelope, faPhone, faLinkdin } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import logo from '../../../assets/logos/logo.png';
@@ -8,6 +8,7 @@ import twitter from '../../../assets/icons/twitter.png';
 import instagram from '../../../assets/icons/instagram.png';
 import youtube from '../../../assets/icons/youtube.png';
 import './Footer.css';
+import ScrollToTop from 'react-scroll-to-top';
 
 const Footer = () => {
     return (
@@ -33,11 +34,11 @@ const Footer = () => {
                 <div className='footer-second-part'>
                     <h5 className='company'>Company</h5>
                     <ul>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Project</a></li>
-                        <li><a href="">Our Team</a></li>
-                        <li><a href="">Terms Conditions</a></li>
-                        <li><a href="">Web Development Privacy Policy</a></li>
+                        <li><a href="/">About</a></li>
+                        <li><a href="/">Project</a></li>
+                        <li><a href="/">Our Team</a></li>
+                        <li><a href="/">Terms Conditions</a></li>
+                        <li><a href="/">Web Development Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div className='footer-third-part'>
@@ -53,6 +54,15 @@ const Footer = () => {
                 </div>
             </div>
             <p className='copyright'><small>Copyright © 2023 Creative Agency</small></p>
+            <ScrollToTop
+            className='d-flex align-items-center justify-content-center'
+                smooth
+                color='#fff'
+                width='16'
+                height='16'
+                top='500'
+                style={{ backgroundColor: '#7AB259', padding: '10px', boxShadow: 'none' }}
+            ></ScrollToTop>
         </footer>
     );
 };
