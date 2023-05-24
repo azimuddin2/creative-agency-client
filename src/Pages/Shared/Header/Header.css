@@ -14,6 +14,9 @@
     text-align: center;
     color: #ffffff !important;
     padding: 6px 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar-menu a{

@@ -17,7 +17,7 @@ const Header = () => {
             .catch(error => {
                 toast.error(error.message);
             })
-    }
+    };
 
     return (
         <>
@@ -33,7 +33,12 @@ const Header = () => {
                             <Nav.Link href="/#project">Our Portfolio</Nav.Link>
                             <Nav.Link href="/#services">Our Services</Nav.Link>
                             <Nav.Link href="/#contact">Contact Us</Nav.Link>
-                            <Nav.Link as={Link} className='login' to="/login"><span>Login</span> <FontAwesomeIcon className='icon' icon={faRightToBracket}></FontAwesomeIcon> </Nav.Link>
+                            {
+                                user?.uid ?
+                                    <button className='login border-0' onClick={handleLogout}><span>Logout</span><FontAwesomeIcon className='icon' icon={faRightToBracket}></FontAwesomeIcon></button>
+                                    :
+                                    <Nav.Link as={Link} className='login' to="/login"><span>Login</span> <FontAwesomeIcon className='icon' icon={faRightToBracket}></FontAwesomeIcon> </Nav.Link>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

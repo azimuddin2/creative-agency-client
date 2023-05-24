@@ -2,12 +2,14 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import login from '../../../assets/images/login.gif';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -36,16 +38,45 @@ const Login = () => {
                     <h2 className='form-title'>Login</h2>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control name='email' type="email" placeholder="Email" required />
+                            <Form.Control
+                                name='email'
+                                type="email"
+                                placeholder="Email"
+                                required
+                            />
                         </Form.Group>
 
-                        <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control name='password' type="password" placeholder="Password" required />
+                        <Form.Group className="mb-5" controlId="formBasicPassword">
+                            <Form.Control
+                                name='password'
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                                required
+                            />
+                            <p
+                                className='show-password'
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {
+                                    showPassword ?
+                                        <FaEyeSlash className='fs-6'></FaEyeSlash>
+                                        :
+                                        <FaEye className='fs-6'></FaEye>
+                                }
+                            </p>
                         </Form.Group>
 
-                        <Form.Group className="mb-4" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
+                        <div className="form-check mb-3">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <label className="form-check-label fw-semibold" for="flexCheckDefault">
+                                    Remember Me
+                                </label>
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    <Link className='forgot-password'> Forgot Password</Link>
+                                </label>
+                            </div>
+                        </div>
 
                         <Button className='submit-button py-2' type="submit">LOGIN</Button>
                     </Form>

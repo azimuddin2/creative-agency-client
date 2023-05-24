@@ -2,12 +2,14 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import signup from '../../../assets/images/signup.gif';
 import './SignUp.css';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { FaEyeSlash, FaEye } from 'react-icons/fa';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -19,10 +21,22 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                handleUpdateUserProfile(name);
                 toast.success(`Create user successfully ${user?.email}`);
                 console.log(user)
                 form.reset();
             })
+            .catch(error => {
+                toast.error(error.message);
+            })
+    };
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = {
+            displayName: name
+        }
+        updateUserProfile(profile)
+            .then(() => { })
             .catch(error => {
                 toast.error(error.message);
             })
@@ -38,20 +52,49 @@ const SignUp = () => {
                     <h2 className='form-title'>Sign Up</h2>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Control name='name' type="text" placeholder="Name" required />
+                            <Form.Control
+                                name='name'
+                                type="text"
+                                placeholder="Name"
+                                required
+                            />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control name='email' type="email" placeholder="Email" required />
+                            <Form.Control
+                                name='email'
+                                type="email"
+                                placeholder="Email"
+                                required
+                            />
                         </Form.Group>
 
-                        <Form.Group className="mb-4" controlId="formBasicPassword">
-                            <Form.Control name='password' type="password" placeholder="Password" required />
+                        <Form.Group className="mb-5" controlId="formBasicPassword">
+                            <Form.Control
+                                name='password'
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder="Password"
+                                required
+                            />
+                            <p
+                                className='show-password'
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {
+                                    showPassword ?
+                                        <FaEyeSlash className='fs-6'></FaEyeSlash>
+                                        :
+                                        <FaEye className='fs-6'></FaEye>
+                                }
+                            </p>
                         </Form.Group>
 
-                        <Form.Group className="mb-4" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
+                        <div className="form-check mb-3">
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <label className="form-check-label fw-semibold" for="flexCheckDefault">
+                                I agree to the <Link className='link'>terms and conditions</Link>
+                            </label>
+                        </div>
 
                         <Button className='submit-button py-2' type="submit">SIGN UP</Button>
                     </Form>

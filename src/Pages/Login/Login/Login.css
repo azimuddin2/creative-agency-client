@@ -42,6 +42,14 @@
     text-decoration-line: underline;
 }
 
+.form-check-input:checked {
+    background-color: #111430 !important;
+    border-color: #111430 !important;
+}
+
+.forgot-password{
+    color: #7AB259;
+}
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {

@@ -12,7 +12,19 @@
 .signUp-form {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 50px;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+.show-password {
+    position: absolute;
+    color: #2A414F;
+    cursor: pointer;
+    margin-left: 430px;
+    margin-top: -34px;
+}
+
+.link {
+    color: #7AB259;
 }
 
 
@@ -35,6 +47,10 @@
     .signUp-image {
         margin: auto;
     }
+
+    .show-password {
+        right: 40px;
+    }
 }
 
 
@@ -56,5 +72,9 @@
 
     .signUp-image {
         margin: auto;
+    }
+
+    .show-password {
+        right: 100px;
     }
 }
