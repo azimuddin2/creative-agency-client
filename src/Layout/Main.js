@@ -5,7 +5,7 @@ import Header from '../Pages/Shared/Header/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div style={{ maxWidth: '1536px', margin: 'auto' }}>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

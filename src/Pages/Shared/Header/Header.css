@@ -1,5 +1,6 @@
 .navbar{
     background-color: #FBD062;
+    border: none;
 }
 
 .logo{
@@ -21,8 +22,9 @@
 
 .navbar-menu a{
     color: #474747;
-    font-weight: 400;
+    font-weight: 500;
     margin-right: 20px;
+    text-decoration: none;
 }
 
 
@@ -30,6 +32,7 @@
 @media only screen and (max-width: 576px) {
     .login{
         padding: 8px 30px !important;
+        margin-bottom: 10px;
     }
 
     .navbar-menu a{
