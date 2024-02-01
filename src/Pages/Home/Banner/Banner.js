@@ -1,26 +1,25 @@
 import React from 'react';
-import frame from '../../../assets/logos/Frame.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import frameImg from '../../../assets/logos/Frame.png';
+import { IoArrowForwardSharp } from "react-icons/io5";
 import './Banner.css';
 
 const Banner = () => {
     return (
-        <div className='banner'>
-            <div className='container banner-section'>
+        <section className='banner-section'>
+            <div className='container banner-container'>
+                <div className='banner-image'>
+                    <img src={frameImg} alt="frame" />
+                </div>
                 <div className='banner-info'>
                     <h1>Let’s Grow Your Brand To The Next Level</h1>
                     <p>A creative agency is a term for an agency that offers a variety of services that fall under the umbrella of marketing and advertising.</p>
                     <button className='button'>
-                        <span>Hire us</span>
-                        <FontAwesomeIcon className='icon' icon={faArrowRight}></FontAwesomeIcon>
+                        <span>Hire Us</span>
+                        <IoArrowForwardSharp className='icon' />
                     </button>
                 </div>
-                <div className='banner-image'>
-                    <img src={frame} alt="" />
-                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
