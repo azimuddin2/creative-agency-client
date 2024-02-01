@@ -10,7 +10,7 @@ import Questions from '../Questions/Questions';
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
             {/* <CompanyLogo></CompanyLogo> */}
             {/* <Services></Services> */}
             {/* <Projects></Projects> */}

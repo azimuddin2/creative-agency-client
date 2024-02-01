@@ -1,44 +1,43 @@
-.footer{
+.footer {
     background-image: url('../../../assets/images/footer.png') !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100%;
     padding-top: 80px;
-    /* height: 100%; */
 }
 
-.footer-main-part{
+.footer-main-part {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 20px;
 }
 
-.footer-first-part-info{
+.footer-first-part-info {
     margin-top: 20px;
 }
 
-.footer-first-part-info p{
+.footer-first-part-info p {
     margin-bottom: 10px;
 }
 
-.footer-first-part-info span{
+.footer-first-part-info span {
     margin-left: 6px;
     font-weight: 500;
     font-size: 16px;
     color: #2D2D2D;
 }
 
-.copyright{
+.copyright {
     text-align: center;
     color: rgba(0, 0, 0, 0.7);
 }
 
-ul li{
+ul li {
     list-style: none;
     margin-bottom: 4px;
 }
 
-.footer-second-part ul li a{
+.footer-second-part ul li a {
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
@@ -51,15 +50,15 @@ ul li{
     color: #2D2D2D;
 }
 
-.company{
+.company {
     margin-left: 30px;
 }
 
-.social-icon{
+.social-icon {
     margin-top: 30px;
 }
 
-.social-icon img{
+.social-icon img {
     margin-right: 10px;
     width: 24px;
     cursor: pointer;
@@ -68,23 +67,17 @@ ul li{
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
-    .footer-main-part{
+    .footer-main-part {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 18px;
     }
 
-    .company{
+    .company {
         margin-left: 0px;
     }
 
-    .social-icon{
+    .social-icon {
         text-align: center;
     }
-    
-}
 
-
-/* responsive tablet device */
-@media only screen and (min-width:577px) and (max-width:992px) {
-    
 }
