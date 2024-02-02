@@ -11,8 +11,8 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            {/* <CompanyLogo></CompanyLogo> */}
-            {/* <Services></Services> */}
+            <CompanyLogo></CompanyLogo>
+            <Services></Services>
             {/* <Projects></Projects> */}
             {/* <Questions></Questions> */}
             {/* <Contact></Contact> */}

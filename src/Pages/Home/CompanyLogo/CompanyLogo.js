@@ -8,7 +8,7 @@ import airbnb from '../../../assets/logos/airbnb.png';
 
 const CompanyLogo = () => {
     return (
-        <div className='container'>
+        <section className='container'>
             <div className='company-logo'>
                 <img src={slack} alt="slack company logo" />
                 <img src={google} alt="google company logo" />
@@ -16,7 +16,7 @@ const CompanyLogo = () => {
                 <img src={netflix} alt="netflix company logo" />
                 <img src={airbnb} alt="airbnb company logo" />
             </div>
-        </div>
+        </section>
     );
 };
 
