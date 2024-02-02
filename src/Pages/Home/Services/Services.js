@@ -1,15 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Service from '../Service/Service';
 import './Services.css';
+import { useQuery } from '@tanstack/react-query';
+import ErrorMessage from '../../Shared/ErrorMessage/ErrorMessage';
+import Loading from '../../Shared/Loading/Loading';
 
 const Services = () => {
-    const [services, setServices] = useState([]);
 
-    useEffect(() => {
-        fetch('services.json')
-            .then(res => res.json())
-            .then(data => setServices(data));
-    }, [])
+    const { data: services = [], isLoading, error } = useQuery({
+        queryKey: ['services'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/services');
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    if (isLoading) {
+       return <Loading></Loading>
+    }
+
+    if (error) {
+        return <ErrorMessage message={error.message}></ErrorMessage>
+    }
 
     return (
         <div id='services' className='container'>
