@@ -1,9 +1,14 @@
 import React from 'react';
-import Service from '../Service/Service';
 import './Services.css';
 import { useQuery } from '@tanstack/react-query';
 import ErrorMessage from '../../Shared/ErrorMessage/ErrorMessage';
 import Loading from '../../Shared/Loading/Loading';
+import { A11y, Autoplay, Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import "swiper/css/navigation";
+import 'swiper/css/pagination';
+import Service from '../Service/Service';
 
 const Services = () => {
 
@@ -17,7 +22,7 @@ const Services = () => {
     })
 
     if (isLoading) {
-       return <Loading></Loading>
+        return <Loading></Loading>
     }
 
     if (error) {
@@ -26,14 +31,45 @@ const Services = () => {
 
     return (
         <div id='services' className='container'>
-            <h2 className='service-title'>Provide awesome <span>services</span></h2>
+            <h2 className='service-title'>Provide Awesome <span>Services</span></h2>
             <div className='services'>
-                {
-                    services.map(service => <Service
-                        key={service.id}
-                        service={service}
-                    ></Service>)
-                }
+                <Swiper
+                    style={{
+                        "--swiper-pagination-color": "#7AB259",
+                        "--swiper-pagination-bullet-inactive-color": "#999999",
+                        "--swiper-pagination-bullet-inactive-opacity": "1",
+                        "--swiper-pagination-bullet-size": "14px",
+                        "--swiper-pagination-bullet-horizontal-gap": "3px",
+                    }}
+                    className="mySwiper"
+                    breakpoints={{
+                        576: {
+                            width: 576,
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            width: 768,
+                            slidesPerView: 2,
+                        },
+                        1280: {
+                            width: 1280,
+                            slidesPerView: 3,
+                        },
+                    }}
+                    spaceBetween={14}
+                    modules={[A11y, Pagination, Navigation, Autoplay]}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{ clickable: true }}
+                >
+                    {
+                        services?.map(service => <SwiperSlide key={service._id} className='p-1'>
+                            <Service service={service}></Service>
+                        </SwiperSlide>)
+                    }
+                </Swiper>
             </div>
         </div>
     );

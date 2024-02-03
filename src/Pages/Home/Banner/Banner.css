@@ -12,7 +12,7 @@
     justify-content: center;
     flex-direction: row-reverse;
     gap: 200px;
-    padding: 80px 0px;
+    padding: 90px 0px;
 }
 
 .banner-image img {
@@ -26,10 +26,12 @@
 
 .banner-info h1 {
     color: #111430;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 44px;
     letter-spacing: 0.01em;
     margin-bottom: 20px;
+    font-family: "Roboto Condensed", sans-serif;
+    width: 90%;
 }
 
 .banner-info p {
@@ -87,6 +89,7 @@
     .banner-info h1 {
         font-size: 32px;
         margin-bottom: 12px;
+        width: 100%;
     }
 
     .banner-info p {
@@ -128,6 +131,7 @@
     .banner-info h1 {
         font-size: 34px;
         margin-bottom: 12px;
+        width: 100%;
     }
 
     .banner-info p {
