@@ -1,6 +1,6 @@
-.project{
+.project {
     background-color: #ffffff;
-    height: 385px;
+    height: 400px;
     padding: 20px;
     border-radius: 20px;
     margin: 60px 0px;
@@ -10,15 +10,25 @@
     width: 100%;
 }
 
-.project h3{
+.project h3 {
     color: #3c4b64;
     font-size: 20px;
-    font-weight:600;
+    font-weight: 500;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-family: "Roboto Condensed", sans-serif;
 }
 
-.project p{
+.project p {
     color: #3c4b64;
     font-size: 14px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+
+/* responsive mobile device */
+@media screen and (max-width: 576px) {
+    .project {
+        height: 380px;
+    }
 }

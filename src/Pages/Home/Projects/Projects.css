@@ -7,8 +7,10 @@
     color: #ffffff;
     text-align: center;
     padding-top: 60px;
-    font-size: 34px;
-    font-weight: 600;
+    font-size: 32px;
+    font-weight: 500;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: capitalize;
 }
 
 .project-title span {
@@ -16,7 +18,7 @@
 }
 
 .projects {
-    padding-bottom: 36px;
+    padding-bottom: 40px;
 }
 
 .swiper-button-prev {
@@ -30,7 +32,7 @@
 }
 
 .swiper-button-next {
-    left: 92.5% !important;
+    left: 92% !important;
     top: 2% !important;
     background-color: #7AB259;
     width: 40px !important;
