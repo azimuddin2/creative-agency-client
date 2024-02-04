@@ -5,8 +5,8 @@
     margin-bottom: 20px;
 }
 
-.signUp-image img {
-    width: 90%;
+.signUp-image {
+    margin: auto;
 }
 
 .signUp-form {
@@ -19,8 +19,8 @@
     position: absolute;
     color: #2A414F;
     cursor: pointer;
-    margin-left: 430px;
-    margin-top: -34px;
+    margin-left: 515px;
+    margin-top: -33px;
 }
 
 .link {
@@ -35,7 +35,7 @@
     }
 
     .signUp-form {
-        padding: 40px 20px;
+        padding: 20px;
         margin-top: -10px;
 
     }

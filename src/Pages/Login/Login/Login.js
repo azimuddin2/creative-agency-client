@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import logo from '../../../assets/logos/logo.png';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -30,6 +31,9 @@ const Login = () => {
 
     return (
         <section className='container'>
+            <Link to={'/'} className='d-flex justify-content-center align-items-center mt-5'>
+                <img src={logo} alt="logo" style={{ width: '180px' }} />
+            </Link>
             <div className='login-section'>
                 <div className='login-image'>
                     <img src={login} alt="login" />
@@ -77,7 +81,6 @@ const Login = () => {
                                 </label>
                             </div>
                         </div>
-
                         <Button className='submit-button py-2' type="submit">LOGIN</Button>
                     </Form>
                     <p className='account'>Don’t have an account? <Link to='/signup'><span>Create an account</span></Link> </p>

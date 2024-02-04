@@ -5,8 +5,8 @@
     margin-bottom: 20px;
 }
 
-.login-image img {
-    width: 90%;
+.login-image {
+    margin: auto;
 }
 
 .login-form {
@@ -18,7 +18,7 @@
 .form-title {
     font-size: 30px;
     color: #2D2D2D;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 40px;
     text-transform: uppercase;
 }
@@ -33,7 +33,6 @@
 .account {
     text-align: center;
     font-size: 16px;
-    /* font-weight: 500; */
 }
 
 .account span {
@@ -58,9 +57,8 @@
     }
 
     .login-form {
-        padding: 40px 20px;
+        padding: 20px;
         margin-top: -10px;
-
     }
 
     .form-title {
@@ -75,6 +73,10 @@
 
     .login-image {
         margin: auto;
+    }
+
+    .account span{
+        font-size: 14px;
     }
 }
 

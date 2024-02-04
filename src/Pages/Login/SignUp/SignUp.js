@@ -6,10 +6,12 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import logo from '../../../assets/logos/logo.png';
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const [accepted, setAccepted] = useState(false);
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -44,6 +46,9 @@ const SignUp = () => {
 
     return (
         <section className='container'>
+            <Link to={'/'} className='d-flex justify-content-center align-items-center mt-5'>
+                <img src={logo} alt="logo" style={{ width: '180px' }} />
+            </Link>
             <div className='signUp-section'>
                 <div className='signUp-image'>
                     <img src={signup} alt="signUp" />
@@ -90,13 +95,19 @@ const SignUp = () => {
                         </Form.Group>
 
                         <div className="form-check mb-3">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <input
+                                onClick={() => setAccepted(!accepted)}
+                                className="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                            />
                             <label className="form-check-label fw-semibold" for="flexCheckDefault">
                                 I agree to the <Link className='link'>terms and conditions</Link>
                             </label>
                         </div>
 
-                        <Button className='submit-button py-2' type="submit">SIGN UP</Button>
+                        <Button disabled={!accepted} className='submit-button py-2' type="submit">SIGN UP</Button>
                     </Form>
                     <p className='account'>Already have an account? <Link to='/login'><span>Login</span></Link> </p>
                 </div>
