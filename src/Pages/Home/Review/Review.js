@@ -6,7 +6,7 @@ const Review = ({ review }) => {
     const { img, name, position, description } = review;
 
     return (
-        <div className='review mb-5'>
+        <div className='review mb-5 w-100'>
             <div className='review-info'>
                 <div className='review-info-part'>
                     <div className='review-image'>

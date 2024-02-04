@@ -2,33 +2,39 @@
     margin-top: 60px;
 }
 
-.client-title{
-    font-size: 36px;
-    font-weight: 600;
+.client-title {
+    font-size: 34px;
+    font-weight: 500;
     color: #171B4E;
     text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: capitalize;
 }
 
-.client-title span{
+.client-title span {
     color: #7AB259;
 }
 
-.reviews{
+.reviews {
     margin-top: 30px;
 }
 
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
-    .reviews{
+    .reviews {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .client-title {
+        font-size: 26px;
     }
 }
 
 
 /* responsive tablet device */
 @media only screen and (min-width:577px) and (max-width:992px) {
-    .reviews{
+    .reviews {
         grid-template-columns: repeat(2, 1fr);
     }
 }

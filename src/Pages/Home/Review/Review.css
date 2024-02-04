@@ -7,12 +7,12 @@
 
 .review-info {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 18px;
 }
 
-.review-info-part{
+.review-info-part {
     display: flex;
     align-items: center;
 }
@@ -21,7 +21,7 @@
     width: 64px;
     height: 64px;
     margin-right: 12px;
-    border: 2px solid #7AB259;
+    border: 3px solid #7AB259;
     border-radius: 100px;
 }
 
@@ -45,6 +45,6 @@
     letter-spacing: 0.005em;
 }
 
-.comma img{
+.comma img {
     width: 80%;
 }

@@ -47,7 +47,7 @@ const Reviews = () => {
             position: "CEO, Manpol",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat "
         },
-    ]
+    ];
 
     return (
         <section className='container reviews-section'>
@@ -58,7 +58,7 @@ const Reviews = () => {
                         "--swiper-pagination-color": "#7AB259",
                         "--swiper-pagination-bullet-inactive-color": "#999999",
                         "--swiper-pagination-bullet-inactive-opacity": "1",
-                        "--swiper-pagination-bullet-size": "12px",
+                        "--swiper-pagination-bullet-size": "14px",
                         "--swiper-pagination-bullet-horizontal-gap": "3px",
                     }}
                     className="mySwiper"
@@ -72,15 +72,13 @@ const Reviews = () => {
                             slidesPerView: 2,
                             spaceBetween: 12,
                         },
-                        1200: {
-                            width: 1200,
+                        1280: {
+                            width: 1280,
                             slidesPerView: 3,
-                            spaceBetween: 12,
-
                         },
                     }}
                     modules={[A11y, Pagination, Navigation, Autoplay]}
-                    spaceBetween={24}
+                    spaceBetween={20}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,

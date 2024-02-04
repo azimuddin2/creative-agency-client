@@ -7,7 +7,7 @@ const Questions = () => {
     return (
         <section className='container'>
             <h2 className='client-title'>Frequently Asked <span>Questions</span></h2>
-            <div className='row mt-5'>
+            <div className='row mt-lg-5 mt-4'>
                 <Accordion defaultActiveKey="0" className='col-md-6 mt-lg-5'>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>What is a creative agency?</Accordion.Header>

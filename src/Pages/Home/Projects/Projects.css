@@ -7,7 +7,7 @@
     color: #ffffff;
     text-align: center;
     padding-top: 60px;
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 500;
     font-family: "Roboto Condensed", sans-serif;
     text-transform: capitalize;
@@ -61,8 +61,12 @@
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
-    .project-title span {
-        display: block;
+    .projects-section {
+        margin: 60px 0px;
+    }
+
+    .project-title {
+        font-size: 26px;
     }
 
     .swiper-button-prev {
