@@ -19,11 +19,14 @@
     letter-spacing: 0.396px;
     color: #2D2D2D;
     margin-bottom: 20px;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: capitalize;
 }
 
 .contact-info p {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(0, 0, 0, 0.7);
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 .message {
@@ -61,7 +64,7 @@
     } 
 
     .contact-image{
-        width: 80%;
+        width: 90%;
     }
     
     .contact-field{

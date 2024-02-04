@@ -1,8 +1,27 @@
 import React from 'react';
 import './Contact.css';
 import contactUs from '../../../assets/images/contact-us.gif'
+import toast from 'react-hot-toast';
 
 const Contact = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const message = form.message.value;
+
+        const contactInfo = {
+            email,
+            name,
+            message
+        };
+        console.log(contactInfo);
+        form.reset();
+        toast.success('Your message has been sent successfully.');
+    };
+
     return (
         <section id='contact' className='contact-section'>
             <div className='container'>
@@ -15,22 +34,40 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className='contact-field'>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="form-floating mb-3">
-                                <input type="email" className="form-control" id="email" placeholder="Your email address" required/>
+                                <input
+                                    type="email"
+                                    name='email'
+                                    className="form-control"
+                                    id="email"
+                                    placeholder="Your email address"
+                                    required
+                                />
                                 <label for="floatingInput">Your email address</label>
                             </div>
-
                             <div className="form-floating mb-3">
-                                <input type="text" className="form-control" id="name" placeholder="Your name / company’s name" required/>
+                                <input
+                                    type="text"
+                                    name='name'
+                                    className="form-control"
+                                    id="name"
+                                    placeholder="Your name / company’s name"
+                                    required
+                                />
                                 <label for="floatingInput">Your name / company’s name</label>
                             </div>
-
                             <div className="form-floating">
-                                <textarea className="form-control message" placeholder="message" id="floatingTextarea" required></textarea>
+                                <textarea
+                                    name='message'
+                                    className="form-control message"
+                                    placeholder="message"
+                                    id="floatingTextarea"
+                                    required
+                                ></textarea>
                                 <label for="floatingTextarea">Your Message</label>
                             </div>
-                            <input className='button' type="submit" value="Send" />
+                            <input className='button mt-3' type="submit" value="Send" />
                         </form>
                     </div>
                 </div>
