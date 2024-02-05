@@ -5,7 +5,6 @@
 
 .logo{
     width: 150px;
-    height: 42px;
     margin-top: 5px;
 }
 
@@ -18,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 500;
 }
 
 .navbar-menu a{
@@ -27,6 +27,11 @@
     text-decoration: none;
 }
 
+#home{
+    color: #474747;
+    font-weight: 700;
+    border-bottom: 3px solid #7AB259;
+}
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
@@ -38,5 +43,9 @@
     .navbar-menu a{
         text-align: center;
         margin-right: 0px;
+    }
+
+    #home{
+        border-bottom: none;
     }
 }
