@@ -22,10 +22,29 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                saveUserDataBase(user.displayName, user.email);
                 form.reset();
             })
             .catch(error => {
                 toast.error(error.message);
+            })
+    };
+
+    const saveUserDataBase = (name, email) => {
+        const userInfo = {
+            name,
+            email
+        };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
             })
     };
 
