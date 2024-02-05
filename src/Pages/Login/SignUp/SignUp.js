@@ -1,5 +1,5 @@
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import signup from '../../../assets/images/signup.gif';
 import './SignUp.css';
 import { useContext, useState } from 'react';
@@ -12,6 +12,10 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [accepted, setAccepted] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -28,6 +32,7 @@ const SignUp = () => {
                 toast.success(`Create user successfully ${user?.email}`);
                 console.log(user)
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 toast.error(error.message);
