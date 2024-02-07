@@ -1,33 +1,80 @@
-import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const OrderModal = ({ service, showModal, handleClose }) => {
-    const { name, price, description } = service;
+    const { user } = useContext(AuthContext);
+    const { image, name, price } = service;
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const phone = event.target.phone.value;
+
+        const orderInfo = {
+            name: user.displayName,
+            email: user.email,
+            phone,
+            serviceName: name,
+            image,
+            price,
+        };
+        console.log(orderInfo);
+        // handleClose(false);
+    };
+
     return (
-        <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>{name}</Modal.Title>
+        <Modal
+            show={showModal}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header className='align-items-start' closeButton>
+                <div className='d-block text-center w-100'>
+                    <img src={image} alt={name} style={{ width: '80px' }} />
+                    <h2 className='fs-4 mt-2 mb-1'>{name}</h2>
+                    <p className='fs-5 fw-medium '>Price: <span style={{ color: '#7AB259' }}>${price}</span></p>
+                </div>
             </Modal.Header>
             <Modal.Body>
-                <p>Price: ${price}</p>
-                <p>{description}</p>
-
-                {/* Additional details or a form for ordering can go here */}
-                {/* For example, you can add an order form */}
-                <form>
-                    {/* Form fields for ordering the service */}
-                    <label htmlFor='quantity'>Quantity:</label>
-                    <input type='number' id='quantity' name='quantity' min='1' required />
-                </form>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                            name='name'
+                            type="text"
+                            value={name}
+                            readOnly
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                            name='name'
+                            type="text"
+                            value={user?.displayName}
+                            disabled
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control
+                            name='email'
+                            type="email"
+                            value={user?.email}
+                            disabled
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control
+                            name='phone'
+                            type="text"
+                            placeholder='Your Phone Number'
+                            required
+                        />
+                    </Form.Group>
+                    <Button className='submit-button py-2 text-uppercase' type="submit">Submit</Button>
+                </Form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant='secondary' onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant='primary' onClick={handleClose}>
-                    Order Now
-                </Button>
-            </Modal.Footer>
         </Modal>
     );
 };
