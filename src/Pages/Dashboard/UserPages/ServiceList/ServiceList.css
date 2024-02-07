@@ -1,4 +1,21 @@
 .service-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* responsive mobile device */
+@media screen and (max-width: 576px) {
+    .service-list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/* responsive tablet device */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .service-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

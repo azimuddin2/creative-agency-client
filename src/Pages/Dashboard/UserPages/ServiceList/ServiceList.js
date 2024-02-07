@@ -25,9 +25,9 @@ const ServiceList = () => {
     }
 
     return (
-        <div>
-            <h1>Service List!!</h1>
-            <div className='sevice-list'>
+        <div className='my-5'>
+            <h2 className='service-title'>Provide Awesome <span>Services</span></h2>
+            <div className='service-list mt-5'>
                 {
                     services?.map(service => <ServiceCol
                         key={service._id}

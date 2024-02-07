@@ -1,15 +1,25 @@
 import React from 'react';
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 const ServiceCol = ({ service }) => {
     const { image, name, price, description } = service;
 
     return (
-        <div className="service shadow-sm mb-5 h-100 w-100">
-            <img src={image} className="service-image" alt={name} />
-            <div className="service-info">
-                <h5>{name}</h5>
+        <div className='service shadow-sm'>
+            <div className='service-image'>
+                <img src={image} alt={name} />
+            </div>
+            <div className='service-info'>
+                <h4>{name}</h4>
+                <p className=' fs-5 fw-medium '>Price: <span style={{ color: '#7AB259' }}>${price}</span></p>
                 <p>{description}</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <button
+                    style={{ backgroundColor: '#7AB259' }}
+                    className='button mx-auto '
+                >
+                    <span className='fw-normal'>Order Now</span>
+                    <MdOutlineShoppingCart className='fs-5 ms-1' />
+                </button>
             </div>
         </div>
     );
