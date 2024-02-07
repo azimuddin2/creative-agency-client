@@ -11,6 +11,7 @@ import logo from '../../../assets/logos/logo.png';
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+    const [accepted, setAccepted] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -95,17 +96,23 @@ const Login = () => {
                         </Form.Group>
 
                         <div className="form-check mb-3">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <input
+                                onClick={() => setAccepted(!accepted)}
+                                className="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="flexCheckDefault"
+                            />
                             <div className='d-flex justify-content-between align-items-center'>
                                 <label className="form-check-label fw-semibold" for="flexCheckDefault">
                                     Remember Me
                                 </label>
                                 <label className="form-check-label" for="flexCheckDefault">
-                                    <Link className='forgot-password'> Forgot Password</Link>
+                                    <Link className='forgot-password'>Forgot Password</Link>
                                 </label>
                             </div>
                         </div>
-                        <Button className='submit-button py-2' type="submit">LOGIN</Button>
+                        <Button disabled={!accepted} className='submit-button py-2' type="submit">LOGIN</Button>
                     </Form>
                     <p className='account'>Don’t have an account? <Link to='/signup'><span>Create an account</span></Link> </p>
                 </div>

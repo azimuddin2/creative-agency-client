@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdOutlineShoppingCart } from "react-icons/md";
+import OrderModal from '../OrderModal/OrderModal';
 
 const ServiceCol = ({ service }) => {
     const { image, name, price, description } = service;
+
+    const[showModal, setShowModal] = useState(false);
+
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
 
     return (
         <div className='service shadow-sm'>
@@ -14,6 +20,7 @@ const ServiceCol = ({ service }) => {
                 <p className=' fs-5 fw-medium '>Price: <span style={{ color: '#7AB259' }}>${price}</span></p>
                 <p>{description}</p>
                 <button
+                    onClick={handleShow}
                     style={{ backgroundColor: '#7AB259' }}
                     className='button mx-auto '
                 >
@@ -21,6 +28,11 @@ const ServiceCol = ({ service }) => {
                     <MdOutlineShoppingCart className='fs-5 ms-1' />
                 </button>
             </div>
+            <OrderModal
+                service={service}
+                showModal={showModal}
+                handleClose={handleClose}
+            ></OrderModal>
         </div>
     );
 };
