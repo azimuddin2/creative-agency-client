@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const OrderModal = ({ service, showModal, handleClose }) => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { image, name, price } = service;
 
     const handleSubmit = (event) => {
@@ -18,8 +21,24 @@ const OrderModal = ({ service, showModal, handleClose }) => {
             image,
             price,
         };
-        console.log(orderInfo);
-        // handleClose(false);
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderInfo)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    handleClose(false);
+                    toast.success('Order Complete Please Payment', {
+                        duration: 5000,
+                        position: 'top-center'
+                    });
+                    navigate('/dashboard/my-orders');
+                }
+            })
     };
 
     return (
