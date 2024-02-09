@@ -16,6 +16,7 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { CiEdit } from "react-icons/ci";
 import { IoLogOutOutline } from "react-icons/io5";
 import toast from 'react-hot-toast';
+import Footer from '../Pages/Shared/Footer/Footer';
 
 const Dashboard = () => {
     const isAdmin = false;
@@ -165,6 +166,7 @@ const Dashboard = () => {
             <div className='container'>
                 <Outlet></Outlet>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

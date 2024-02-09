@@ -1,0 +1,56 @@
+.form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.form-image {
+    margin: auto;
+}
+
+.dashboard-form-title {
+    font-size: 26px;
+    color: #2D2D2D;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed", sans-serif;
+    text-align: center;
+}
+
+
+/* responsive mobile device */
+@media only screen and (max-width: 576px) {
+    .form-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form-image img {
+        width: 100%;
+    }
+
+    .form-image {
+        margin: auto;
+    }
+
+}
+
+
+/* responsive tablet device */
+@media only screen and (min-width:577px) and (max-width:992px) {
+    .form-section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form-image {
+        padding: 40px;
+        margin-top: -10px;
+        margin: auto;
+    }
+
+    .form-image img {
+        width: 100%;
+    }
+
+}
