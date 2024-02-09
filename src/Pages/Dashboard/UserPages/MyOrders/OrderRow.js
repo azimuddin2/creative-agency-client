@@ -1,7 +1,7 @@
 import React from 'react';
 
 const OrderRow = ({ index, order }) => {
-    const { image, serviceName, price, name, email, phone } = order;
+    const { image, serviceName, price, name, email } = order;
 
     return (
         <tr>
@@ -12,9 +12,14 @@ const OrderRow = ({ index, order }) => {
             <td>{serviceName}</td>
             <td>{name}</td>
             <td>{email}</td>
-            <td>${price}</td>
+            <td className=' fw-medium '>${price}</td>
             <td>
-                <button style={{ backgroundColor: '#7AB259' }} className=' btn-success btn border-0 rounded'>Pay</button>
+                <button
+                    style={{ backgroundColor: '#7AB259' }}
+                    className=' rounded-1 btn-success btn border-0 rounded'
+                >
+                    Pay
+                </button>
             </td>
         </tr>
     );

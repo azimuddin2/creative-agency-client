@@ -5,6 +5,10 @@ import Loading from '../../../Shared/Loading/Loading';
 import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import { Table } from 'react-bootstrap';
 import OrderRow from './OrderRow';
+import orderGif from '../../../../assets/images/order.gif';
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import './MyOrders.css';
+import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
@@ -27,32 +31,51 @@ const MyOrders = () => {
     }
 
     return (
-        <div className='my-5'>
-            <h2 className='fs-3'>My Orders: 0{orders?.length}</h2>
-            <div>
-                <Table responsive className='table table-striped'>
-                    <thead className=' table-success'>
-                        <tr>
-                            <th>No</th>
-                            <th>Image</th>
-                            <th>Service Name</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders?.map((order, index) => <OrderRow
-                                key={order._id}
-                                index={index}
-                                order={order}
-                            ></OrderRow>)
-                        }
-                    </tbody>
-                </Table>
-            </div>
+        <div className='my-4 my-lg-5'>
+            {
+                orders?.length > 0 ?
+                    (
+                        <div className='px-2 px-lg-5'>
+                            <h2 className='fs-3 mb-3'>My Orders: 0{orders?.length}</h2>
+                            <Table responsive className='table table-striped table-light'>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Image</th>
+                                        <th>Service Name</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        orders?.map((order, index) => <OrderRow
+                                            key={order._id}
+                                            index={index}
+                                            order={order}
+                                        ></OrderRow>)
+                                    }
+                                </tbody>
+                            </Table>
+                        </div>
+                    )
+                    :
+                    (
+                        <div className='text-center'>
+                            <img src={orderGif} alt="OrderGif" className='order-gif' />
+                            <Link to={'/dashboard'} className='text-decoration-none'>
+                                <button
+                                    style={{ backgroundColor: '#7AB259' }}
+                                    className='button mx-auto fw-normal'
+                                >
+                                    Please Service Order <IoArrowForwardCircleOutline className='fs-5 ms-1 ' />
+                                </button>
+                            </Link>
+                        </div>
+                    )
+            }
         </div>
     );
 };
