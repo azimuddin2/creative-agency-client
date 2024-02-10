@@ -19,7 +19,7 @@ import toast from 'react-hot-toast';
 import Footer from '../Pages/Shared/Footer/Footer';
 
 const Dashboard = () => {
-    const isAdmin = false;
+    const isAdmin = true;
     const { user, logOut } = useContext(AuthContext);
     const [show, setShow] = useState(true);
 

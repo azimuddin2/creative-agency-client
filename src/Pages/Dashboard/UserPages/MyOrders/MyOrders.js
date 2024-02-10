@@ -31,7 +31,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div className='my-4 my-lg-5'>
+        <div className='my-5'>
             {
                 orders?.length > 0 ?
                     (
@@ -46,7 +46,7 @@ const MyOrders = () => {
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Price</th>
-                                        <th>Action</th>
+                                        <th>Payment</th>
                                     </tr>
                                 </thead>
                                 <tbody>

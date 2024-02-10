@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import ServiceList from "../Pages/Dashboard/UserPages/ServiceList/ServiceList";
 import MyOrders from "../Pages/Dashboard/UserPages/MyOrders/MyOrders";
 import AddReview from "../Pages/Dashboard/UserPages/AddReview/AddReview";
+import AllUser from "../Pages/Dashboard/AdminPages/AllUser/AllUser";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'all-user',
+                element: <AllUser></AllUser>
+            },
+
+            // user related route
             {
                 path: '/dashboard',
                 element: <ServiceList></ServiceList>
