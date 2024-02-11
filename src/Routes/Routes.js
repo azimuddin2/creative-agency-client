@@ -9,6 +9,7 @@ import ServiceList from "../Pages/Dashboard/UserPages/ServiceList/ServiceList";
 import MyOrders from "../Pages/Dashboard/UserPages/MyOrders/MyOrders";
 import AddReview from "../Pages/Dashboard/UserPages/AddReview/AddReview";
 import AllUser from "../Pages/Dashboard/AdminPages/AllUser/AllUser";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'all-user',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             },
 
             // user related route

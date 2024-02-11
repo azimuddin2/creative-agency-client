@@ -8,7 +8,6 @@ import ActiveLink from '../components/ActiveLink/ActiveLink';
 import { FiShoppingCart } from "react-icons/fi";
 import { GoTasklist } from "react-icons/go";
 import { BiMessageEdit } from "react-icons/bi";
-import { RiUserSettingsLine } from "react-icons/ri";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { PiUsersThreeDuotone } from "react-icons/pi";
 import { RxDashboard } from "react-icons/rx";
@@ -17,10 +16,11 @@ import { CiEdit } from "react-icons/ci";
 import { IoLogOutOutline } from "react-icons/io5";
 import toast from 'react-hot-toast';
 import Footer from '../Pages/Shared/Footer/Footer';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
-    const isAdmin = true;
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email);
     const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
@@ -78,12 +78,6 @@ const Dashboard = () => {
                                                         <ActiveLink to='/dashboard/service-list'>
                                                             <GoTasklist className='fs-5' />
                                                             <span className='ms-2'>Manage Services</span>
-                                                        </ActiveLink>
-                                                    </li>
-                                                    <li className='mb-3'>
-                                                        <ActiveLink to='/dashboard/make-admin'>
-                                                            <RiUserSettingsLine className='fs-5' />
-                                                            <span className='ms-2'>Make Admin</span>
                                                         </ActiveLink>
                                                     </li>
                                                 </>

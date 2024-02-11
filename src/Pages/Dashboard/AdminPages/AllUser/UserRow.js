@@ -108,7 +108,7 @@ const UserRow = ({ index, user, refetch }) => {
                                 onClick={() => handleMakeAdmin(user)}
                                 className='btn btn-sm btn-dark d-flex align-items-center'
                             >
-                                <HiOutlineUser className='fs-4' />
+                                <HiOutlineUser className='fs-5' />
                                 <span>MakeAdmin</span>
                             </button>
                         )
@@ -119,7 +119,7 @@ const UserRow = ({ index, user, refetch }) => {
                     onClick={() => handleDelete(user)}
                     className='btn btn-sm btn-danger'
                 >
-                    <RiDeleteBin5Line className='fs-4' />
+                    <RiDeleteBin5Line className='fs-5' />
                 </button>
             </td>
         </tr>
