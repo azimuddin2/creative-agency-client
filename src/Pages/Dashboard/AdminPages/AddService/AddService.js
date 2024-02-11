@@ -1,9 +1,96 @@
 import React from 'react';
+import addServiceGif from '../../../../assets/images/add-service.gif';
+import { Button, Form } from 'react-bootstrap';
+import { CiEdit } from 'react-icons/ci';
+import { SlCloudUpload } from "react-icons/sl";
 
 const AddService = () => {
+
+
+    
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const image = form.image.value;
+        const name = form.name.value;
+        const price = form.price.value;
+        const description = form.description.value;
+
+        
+
+        const serviceInfo = {
+            image,
+            name,
+            price: parseInt(price),
+            description,
+        }
+        console.log(serviceInfo);
+    };
+
     return (
-        <div>
-            
+        <div className='form-section my-5'>
+            <div className='form-image'>
+                <img src={addServiceGif} alt="service gif" className='mx-auto' />
+            </div>
+            <div className='mt-lg-5 bg-light p-4 pb-lg-4 p-lg-5 rounded-2'>
+                <h2 className='dashboard-form-title'>Add Service<CiEdit /></h2>
+
+                <Form onSubmit={handleSubmit}>
+
+
+
+
+                    <div class="input-group mb-3">
+                        <input
+                            name='image'
+                            type="file"
+                            className="form-control"
+                            id="imageUpload"
+                            required
+                        />
+                        <label style={{ backgroundColor: '#7AB259', color: 'white' }} className="input-group-text d-flex align-items-center" htmlFor="imageUpload">
+                            <SlCloudUpload className='me-2 fs-5' />
+                            <span>Upload image</span>
+                        </label>
+                    </div>
+
+
+
+
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Control
+                            name='name'
+                            type="text"
+                            placeholder="Service name"
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPrice">
+                        <Form.Control
+                            name='price'
+                            type="number"
+                            placeholder="Price"
+                            required
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicDescription">
+                        <Form.Control
+                            as="textarea"
+                            rows='5'
+                            name='description'
+                            type="text"
+                            placeholder="Type here service description..."
+                            required
+                        />
+                    </Form.Group>
+
+                    <Button className='submit-button py-2 text-uppercase fw-medium ' type="submit">Save</Button>
+                </Form>
+
+            </div>
         </div>
     );
 };

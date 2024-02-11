@@ -10,6 +10,7 @@ import MyOrders from "../Pages/Dashboard/UserPages/MyOrders/MyOrders";
 import AddReview from "../Pages/Dashboard/UserPages/AddReview/AddReview";
 import AllUser from "../Pages/Dashboard/AdminPages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
+import AddService from "../Pages/Dashboard/AdminPages/AddService/AddService";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: 'all-user',
                 element: <AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+            {
+                path: 'add-service',
+                element: <AdminRoute><AddService></AddService></AdminRoute>
             },
 
             // user related route
