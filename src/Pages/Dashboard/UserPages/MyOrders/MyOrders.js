@@ -45,7 +45,7 @@ const MyOrders = () => {
             {
                 orders?.length > 0 ?
                     (
-                        <div className='px-2 px-lg-5'>
+                        <div className='px-2 width'>
                             <h2 className='fs-3 mb-3'>My Orders: 0{orders?.length}</h2>
                             <Table responsive className='table table-hover'>
                                 <thead className='table-active'>

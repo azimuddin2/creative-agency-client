@@ -4,6 +4,7 @@ import Loading from '../../../Shared/Loading/Loading';
 import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import ServiceRow from './ServiceRow';
 import { Table } from 'react-bootstrap';
+import './ManageServices.css';
 
 const ManageServices = () => {
 
@@ -26,7 +27,7 @@ const ManageServices = () => {
 
     return (
         <div className='my-5'>
-            <div className='px-2 px-lg-5'>
+            <div className='px-2 width'>
                 <h2 className='fs-3 mb-3'>Manage Services: 0{services?.length}</h2>
                 <Table responsive className='table'>
                     <thead className='table-active'>

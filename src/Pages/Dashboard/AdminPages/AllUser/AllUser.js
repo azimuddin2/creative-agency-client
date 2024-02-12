@@ -39,7 +39,7 @@ const AllUser = () => {
 
     return (
         <div className='my-5'>
-            <div className='px-2 px-lg-5'>
+            <div className='px-2 width'>
                 <h2 className='fs-3 mb-3'>All Users: 0{users?.length}</h2>
                 <Table responsive className='table'>
                     <thead className='table-active'>
