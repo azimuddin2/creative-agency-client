@@ -8,7 +8,7 @@ import './ManageServices.css';
 
 const ManageServices = () => {
 
-    const { data: services = [], isLoading, error } = useQuery({
+    const { data: services = [], isLoading, error, refetch } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/services');
@@ -46,6 +46,7 @@ const ManageServices = () => {
                                 key={service._id}
                                 index={index}
                                 service={service}
+                                refetch={refetch}
                             ></ServiceRow>)
                         }
                     </tbody>
