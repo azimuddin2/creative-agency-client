@@ -6,8 +6,11 @@ import Projects from '../Projects/Projects';
 import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
 import Questions from '../Questions/Questions';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
+
     return (
         <div>
             <Banner></Banner>

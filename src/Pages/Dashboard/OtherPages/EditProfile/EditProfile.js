@@ -6,8 +6,10 @@ import { Button, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import './EditProfile.css';
+import useTitle from '../../../../hooks/useTitle';
 
 const EditProfile = () => {
+    useTitle('Edit Profile');
     const { user, updateUserProfile } = useContext(AuthContext);
     const [countries, setCountries] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);

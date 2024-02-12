@@ -4,9 +4,10 @@ import Loading from '../../../Shared/Loading/Loading';
 import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import ServiceCol from './ServiceCol';
 import './ServiceList.css';
+import useTitle from '../../../../hooks/useTitle';
 
 const ServiceList = () => {
-
+    useTitle('Service List');
     const { data: services = [], isLoading, error } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {

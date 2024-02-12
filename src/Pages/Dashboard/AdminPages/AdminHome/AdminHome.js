@@ -11,8 +11,10 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../Shared/Loading/Loading';
 import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 const AdminHome = () => {
+    useTitle('Dashboard');
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 

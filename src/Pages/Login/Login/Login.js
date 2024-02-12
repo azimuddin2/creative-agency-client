@@ -9,8 +9,10 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../../../assets/logos/logo.png';
 import useToken from '../../../hooks/useToken';
 import swal from 'sweetalert';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
     const { signIn } = useContext(AuthContext);
     const [adminAccess, setAdminAccess] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +69,7 @@ const Login = () => {
     if (adminAccess === true) {
         swal({
             title: "Admin Access🔐",
-            text: "📧Email: adminaccess@gmail.com & 🔑Password: 1234567@",
+            text: "📧Email: adminaccess@gmail.com & 🔑Password: 123456@",
             icon: "info",
             button: "Close",
         });

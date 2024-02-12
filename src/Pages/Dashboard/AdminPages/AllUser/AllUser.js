@@ -6,8 +6,10 @@ import UserRow from './UserRow';
 import { Table } from 'react-bootstrap';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 const AllUser = () => {
+    useTitle('All User');
     const { logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 

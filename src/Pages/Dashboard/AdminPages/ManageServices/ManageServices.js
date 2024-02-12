@@ -5,9 +5,10 @@ import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import ServiceRow from './ServiceRow';
 import { Table } from 'react-bootstrap';
 import './ManageServices.css';
+import useTitle from '../../../../hooks/useTitle';
 
 const ManageServices = () => {
-
+    useTitle('Manage Services');
     const { data: services = [], isLoading, error, refetch } = useQuery({
         queryKey: ['services'],
         queryFn: async () => {

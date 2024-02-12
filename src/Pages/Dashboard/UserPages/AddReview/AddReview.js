@@ -5,8 +5,10 @@ import reviewGif from '../../../../assets/images/review.gif';
 import './AddReview.css'
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import useTitle from '../../../../hooks/useTitle';
 
 const AddReview = () => {
+    useTitle('Add Review');
     const { user } = useContext(AuthContext);
 
     const handleSubmit = (event) => {

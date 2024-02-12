@@ -8,8 +8,10 @@ import { toast } from 'react-hot-toast';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import logo from '../../../assets/logos/logo.png';
 import useToken from '../../../hooks/useToken';
+import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('SignUp');
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [accepted, setAccepted] = useState(false);

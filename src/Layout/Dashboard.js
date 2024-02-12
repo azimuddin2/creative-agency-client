@@ -17,6 +17,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import toast from 'react-hot-toast';
 import Footer from '../Pages/Shared/Footer/Footer';
 import useAdmin from '../hooks/useAdmin';
+import { TbEdit } from 'react-icons/tb';
 
 const Dashboard = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -103,6 +104,12 @@ const Dashboard = () => {
                                                     </li>
                                                 </>
                                         }
+                                        <li className='mb-3'>
+                                            <ActiveLink to='/dashboard/edit-profile'>
+                                                <TbEdit className='fs-5' />
+                                                <span className='ms-2'>Edit Profile</span>
+                                            </ActiveLink>
+                                        </li>
                                     </ul>
                                 </Offcanvas.Body>
                             </Offcanvas>

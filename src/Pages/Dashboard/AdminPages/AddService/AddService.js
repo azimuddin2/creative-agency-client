@@ -6,8 +6,10 @@ import { SlCloudUpload } from "react-icons/sl";
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import useTitle from '../../../../hooks/useTitle';
 
 const AddService = () => {
+    useTitle('Add Service');
     const { logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);

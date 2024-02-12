@@ -9,8 +9,10 @@ import orderGif from '../../../../assets/images/order.gif';
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import './MyOrders.css';
 import { Link, useNavigate } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 const MyOrders = () => {
+    useTitle('My Orders');
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
