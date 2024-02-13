@@ -113,30 +113,54 @@ const Dashboard = () => {
                     </div>
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="light" id="dropdown-basic">
-                            {user.displayName.slice(0, 13)}
+                        <Dropdown.Toggle variant="light" id="dropdown-basic" className='btn-sm'>
+                            {
+                                user.photoURL ?
+                                    (
+                                        <img
+                                            src={user.photoURL}
+                                            alt="userImg"
+                                            style={{ border: '3px solid #7AB259', borderRadius: '100%', width: '44px', height: '44px', }}
+                                        />
+                                    )
+                                    :
+                                    (
+                                        <span className='fs-6'>
+                                            {user.displayName.slice(0, 12)}
+                                        </span>
+                                    )
+                            }
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu style={{ width: '320px' }} className='mt-3 me-2 me-lg-0 bg-light p-3 py-4'>
                             <div className='text-center'>
-                                <div>
-                                    {
-                                        user.photoURL ?
-                                            (
-                                                <img src={user.photoURL} alt="userImg" />
-                                            )
-                                            :
-                                            (
-                                                <h1
-                                                    className='d-flex align-items-center justify-content-center text-white mx-auto'
-                                                    style={{ fontSize: '40px', backgroundColor: '#7AB259', borderRadius: '100%', width: '80px', height: '80px', }}
-                                                >
-                                                    {user.displayName.slice(0, 1)}
-                                                </h1>
-                                            )
-                                    }
+                                <div className='position-relative mb-3'>
+                                    <div className='text-center'>
+                                        {
+                                            user.photoURL ?
+                                                (
+                                                    <img
+                                                        src={user.photoURL}
+                                                        alt="userImg"
+                                                        style={{ border: '4px solid #7AB259', borderRadius: '100%', width: '80px', height: '80px', }}
+                                                    />
+                                                )
+                                                :
+                                                (
+                                                    <h1
+                                                        className='d-flex align-items-center justify-content-center text-white mx-auto fw-normal '
+                                                        style={{ fontSize: '60px', backgroundColor: '#7AB259', borderRadius: '100%', width: '80px', height: '80px', }}
+                                                    >
+                                                        {user.displayName.slice(0, 1)}
+                                                    </h1>
+                                                )
+                                        }
+                                    </div>
+                                    <Link to={'/dashboard/edit-profile'} style={{ left: '157px' }} className='edit-profile-icon'>
+                                        <CiEdit className='fs-5' />
+                                    </Link>
                                 </div>
-                                <h2 className='fs-5'>{user.displayName}!</h2>
+                                <h2 className='fs-5 mb-1'>{user.displayName}!</h2>
                                 <p>{user.email}</p>
                             </div>
                             <Dropdown.Item
