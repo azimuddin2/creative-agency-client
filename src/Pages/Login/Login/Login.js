@@ -49,7 +49,7 @@ const Login = () => {
             name,
             email
         };
-        fetch('http://localhost:5000/users', {
+        fetch('https://creative-agency-server-ivory.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -126,10 +126,10 @@ const Login = () => {
                                 id="flexCheckDefault"
                             />
                             <div className='d-flex justify-content-between align-items-center'>
-                                <label className="form-check-label fw-semibold" for="flexCheckDefault">
+                                <label className="form-check-label fw-semibold" htmlFor="flexCheckDefault">
                                     Remember Me
                                 </label>
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <label className="form-check-label" htmlFor="flexCheckDefault">
                                     <Link className='forgot-password'>Forgot Password</Link>
                                 </label>
                             </div>

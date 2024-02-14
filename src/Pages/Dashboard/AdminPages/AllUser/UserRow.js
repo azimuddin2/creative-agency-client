@@ -21,7 +21,7 @@ const UserRow = ({ index, user, refetch }) => {
         })
             .then((willMakeAdmin) => {
                 if (willMakeAdmin) {
-                    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+                    fetch(`https://creative-agency-server-ivory.vercel.app/users/admin/${user._id}`, {
                         method: 'PATCH',
                         headers: {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -60,7 +60,7 @@ const UserRow = ({ index, user, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/users/${user._id}`, {
+                    fetch(`https://creative-agency-server-ivory.vercel.app/users/${user._id}`, {
                         method: 'DELETE',
                         headers: {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`

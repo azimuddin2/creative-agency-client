@@ -21,7 +21,7 @@ const OrderModal = ({ service, showModal, handleClose }) => {
             image,
             price,
         };
-        fetch('http://localhost:5000/orders', {
+        fetch('https://creative-agency-server-ivory.vercel.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

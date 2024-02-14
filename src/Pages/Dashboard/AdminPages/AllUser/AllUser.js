@@ -16,7 +16,7 @@ const AllUser = () => {
     const { data: users = [], isLoading, error, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users', {
+            const res = await fetch('https://creative-agency-server-ivory.vercel.app/users', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -42,7 +42,7 @@ const AllUser = () => {
     return (
         <div className='my-5'>
             <div className='px-2 width'>
-                <h2 className='fs-3 mb-3'>All Users: 0{users?.length}</h2>
+                <h2 className='fs-3 mb-3'>All Users: {users?.length}</h2>
                 <Table responsive className='table'>
                     <thead className='table-active'>
                         <tr>

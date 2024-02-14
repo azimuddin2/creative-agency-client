@@ -21,7 +21,7 @@ const AdminHome = () => {
     const { data: adminStats = {}, isLoading, error } = useQuery({
         queryKey: ['admin-stats'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/admin-stats', {
+            const res = await fetch('https://creative-agency-server-ivory.vercel.app/admin-stats', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -73,7 +73,7 @@ const AdminHome = () => {
                         <div className="col-sm-12 col-md-8">
                             <div className="card-body text-center ">
                                 <h5 className="card-title fs-2 fw-bolder ">
-                                    0<CountUp end={users} duration={5} />
+                                    <CountUp end={users} duration={5} />
                                 </h5>
                                 <p style={{ color: '#7AB259' }} className="card-text fs-4 mt-1">Users</p>
                             </div>
@@ -103,7 +103,7 @@ const AdminHome = () => {
                         <div className="col-sm-12 col-md-8">
                             <div className="card-body text-center ">
                                 <h5 className="card-title fs-2 fw-bolder ">
-                                    0<CountUp end={orders} duration={5} />
+                                    <CountUp end={orders} duration={5} />
                                 </h5>
                                 <p style={{ color: '#7AB259' }} className="card-text fs-4 mt-1">Orders</p>
                             </div>

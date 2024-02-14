@@ -46,7 +46,7 @@ const AddService = () => {
                         price: parseInt(price),
                         description
                     };
-                    fetch('http://localhost:5000/services', {
+                    fetch('https://creative-agency-server-ivory.vercel.app/services', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -85,7 +85,7 @@ const AddService = () => {
             <div className='mt-lg-5 bg-light p-4 pb-lg-4 p-lg-5 rounded-2'>
                 <h2 className='dashboard-form-title'>Add Service<CiEdit /></h2>
                 <Form onSubmit={handleSubmit}>
-                    <div class="input-group mb-3">
+                    <div className="input-group mb-3">
                         <input
                             onChange={handleFileChange}
                             name='image'

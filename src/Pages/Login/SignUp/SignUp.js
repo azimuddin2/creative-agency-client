@@ -60,7 +60,7 @@ const SignUp = () => {
             name,
             email
         };
-        fetch('http://localhost:5000/users', {
+        fetch('https://creative-agency-server-ivory.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -137,7 +137,7 @@ const SignUp = () => {
                                 value=""
                                 id="flexCheckDefault"
                             />
-                            <label className="form-check-label fw-semibold" for="flexCheckDefault">
+                            <label className="form-check-label fw-semibold" htmlFor="flexCheckDefault">
                                 I agree to the <Link className='link'>terms and conditions</Link>
                             </label>
                         </div>

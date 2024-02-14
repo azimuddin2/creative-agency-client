@@ -31,7 +31,7 @@ const ServiceRow = ({ index, service, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/services/${service._id}`, {
+                    fetch(`https://creative-agency-server-ivory.vercel.app/services/${service._id}`, {
                         method: 'DELETE',
                         headers: {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -44,7 +44,7 @@ const Contact = () => {
                                     placeholder="Your email address"
                                     required
                                 />
-                                <label for="floatingInput">Your email address</label>
+                                <label htmlFor="floatingInput">Your email address</label>
                             </div>
                             <div className="form-floating mb-3">
                                 <input
@@ -55,7 +55,7 @@ const Contact = () => {
                                     placeholder="Your name / company’s name"
                                     required
                                 />
-                                <label for="floatingInput">Your name / company’s name</label>
+                                <label htmlFor="floatingInput">Your name / company’s name</label>
                             </div>
                             <div className="form-floating">
                                 <textarea
@@ -65,7 +65,7 @@ const Contact = () => {
                                     id="floatingTextarea"
                                     required
                                 ></textarea>
-                                <label for="floatingTextarea">Your Message</label>
+                                <label htmlFor="floatingTextarea">Your Message</label>
                             </div>
                             <input className='button mt-3' type="submit" value="Send" />
                         </form>

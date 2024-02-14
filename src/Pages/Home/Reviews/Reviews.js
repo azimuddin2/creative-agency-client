@@ -87,7 +87,7 @@ const Reviews = () => {
                 >
                     <div>
                         {
-                            reviews.map(review => <SwiperSlide key={review._id}>
+                            reviews.map(review => <SwiperSlide key={review.id}>
                                 <Review review={review}></Review>
                             </SwiperSlide>)
                         }

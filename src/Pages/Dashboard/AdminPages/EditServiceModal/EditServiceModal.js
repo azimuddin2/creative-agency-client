@@ -20,7 +20,7 @@ const EditServiceModal = ({ service, showModal, handleClose, refetch }) => {
             price,
             description
         };
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://creative-agency-server-ivory.vercel.app/services/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
