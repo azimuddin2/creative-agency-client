@@ -136,7 +136,7 @@ const Login = () => {
                         </div>
                         <Button disabled={!accepted} className='submit-button py-2' type="submit">LOGIN</Button>
                     </Form>
-                    <p className='account'>Don’t have an account? <Link to='/signup'><span>Create an account</span></Link> </p>
+                    <p className='account'>Don’t have an account? <Link to='/signup' className='link'><span>Create an account</span></Link> </p>
                 </div>
             </div>
         </section>

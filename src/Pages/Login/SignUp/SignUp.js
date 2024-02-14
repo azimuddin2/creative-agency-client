@@ -144,7 +144,7 @@ const SignUp = () => {
 
                         <Button disabled={!accepted} className='submit-button py-2' type="submit">SIGN UP</Button>
                     </Form>
-                    <p className='account'>Already have an account? <Link to='/login'><span>Login</span></Link> </p>
+                    <p className='account'>Already have an account? <Link to='/login' className='link'><span>Login</span></Link> </p>
                 </div>
             </div>
         </section>
