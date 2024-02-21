@@ -1,17 +1,30 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import Loading from '../../../Shared/Loading/Loading';
 import ErrorMessage from '../../../Shared/ErrorMessage/ErrorMessage';
 import UserRow from './UserRow';
 import { Table } from 'react-bootstrap';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AllUser = () => {
+    const { logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { data: users = [], isLoading, error, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
-            const data = await res.json();
+            const res = await fetch('http://localhost:5000/users', {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            if (res.status === 401 || res.status === 403) {
+                logOut();
+                localStorage.removeItem('accessToken');
+                navigate('/login');
+            }
+            const data = await res.json()
             return data;
         }
     })

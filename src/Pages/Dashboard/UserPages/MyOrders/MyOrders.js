@@ -8,16 +8,26 @@ import OrderRow from './OrderRow';
 import orderGif from '../../../../assets/images/order.gif';
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import './MyOrders.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyOrders = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { data: orders = [], isLoading, error } = useQuery({
         queryKey: ['orders', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/orders?email=${user?.email}`);
-            const data = res.json();
+            const res = await fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            if (res.status === 401 || res.status === 403) {
+                logOut();
+                localStorage.removeItem('accessToken');
+                navigate('/login');
+            }
+            const data = await res.json();
             return data;
         }
     })
@@ -42,7 +52,7 @@ const MyOrders = () => {
                                     <tr>
                                         <th>No</th>
                                         <th>Image</th>
-                                        <th>Service Name</th>
+                                        <th>ServiceName</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Price</th>

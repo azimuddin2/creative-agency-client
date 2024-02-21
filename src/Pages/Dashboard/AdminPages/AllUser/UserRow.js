@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { SiAdminer } from "react-icons/si";
 import { HiOutlineUser } from "react-icons/hi2";
 import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 
 const UserRow = ({ index, user, refetch }) => {
+    const { logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { name, email, role } = user;
 
     const handleMakeAdmin = (user) => {
@@ -18,9 +22,19 @@ const UserRow = ({ index, user, refetch }) => {
             .then((willMakeAdmin) => {
                 if (willMakeAdmin) {
                     fetch(`http://localhost:5000/users/admin/${user._id}`, {
-                        method: 'PATCH'
+                        method: 'PATCH',
+                        headers: {
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        }
                     })
-                        .then(res => res.json())
+                        .then(res => {
+                            if (res.status === 401 || res.status === 403) {
+                                logOut();
+                                localStorage.removeItem('accessToken');
+                                navigate('/login');
+                            }
+                            return res.json()
+                        })
                         .then(result => {
                             if (result.modifiedCount) {
                                 refetch();
@@ -47,9 +61,19 @@ const UserRow = ({ index, user, refetch }) => {
             .then((willDelete) => {
                 if (willDelete) {
                     fetch(`http://localhost:5000/users/${user._id}`, {
-                        method: 'DELETE'
+                        method: 'DELETE',
+                        headers: {
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        }
                     })
-                        .then(res => res.json())
+                        .then(res => {
+                            if (res.status === 401 || res.status === 403) {
+                                logOut();
+                                localStorage.removeItem('accessToken');
+                                navigate('/login');
+                            }
+                            return res.json()
+                        })
                         .then(result => {
                             if (result.deletedCount > 0) {
                                 refetch();
