@@ -7,11 +7,15 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../../../assets/logos/logo.png';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [accepted, setAccepted] = useState(false);
+
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,9 +31,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setLoginUserEmail(user.email);
                 saveUserDataBase(user.displayName, user.email);
                 form.reset();
-                navigate(from, { replace: true });
             })
             .catch(error => {
                 toast.error(error.message);
@@ -53,6 +57,10 @@ const Login = () => {
                 console.log(result);
             })
     };
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
     return (
         <section className='container'>

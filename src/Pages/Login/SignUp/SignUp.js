@@ -7,11 +7,15 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import logo from '../../../assets/logos/logo.png';
+import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const [accepted, setAccepted] = useState(false);
+
+    const [createUserEmail, setCreateUserEmail] = useState('');
+    const [token] = useToken(createUserEmail);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -32,7 +36,6 @@ const SignUp = () => {
                 toast.success(`Create user successfully ${user?.email}`);
                 console.log(user)
                 form.reset();
-                navigate(from, { replace: true });
             })
             .catch(error => {
                 toast.error(error.message);
@@ -64,9 +67,15 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                if (result.insertedId) {
+                    setCreateUserEmail(email);
+                }
             })
     };
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
     return (
         <section className='container'>
