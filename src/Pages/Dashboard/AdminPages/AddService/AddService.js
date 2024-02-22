@@ -1,31 +1,78 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import addServiceGif from '../../../../assets/images/add-service.gif';
 import { Button, Form } from 'react-bootstrap';
 import { CiEdit } from 'react-icons/ci';
 import { SlCloudUpload } from "react-icons/sl";
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const AddService = () => {
+    const { logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [selectedFile, setSelectedFile] = useState(null);
 
+    const handleFileChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
 
-    
+    const imageUploadToken = process.env.REACT_APP_Image_Upload_Token;
+    const imageHostingURL = `https://api.imgbb.com/1/upload?key=${imageUploadToken}`;
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+
         const form = event.target;
-        const image = form.image.value;
         const name = form.name.value;
         const price = form.price.value;
         const description = form.description.value;
 
-        
+        fetch(imageHostingURL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageResult => {
+                if (imageResult.success) {
+                    const imageURL = imageResult.data.display_url;
 
-        const serviceInfo = {
-            image,
-            name,
-            price: parseInt(price),
-            description,
-        }
-        console.log(serviceInfo);
+                    const addNewService = {
+                        image: imageURL,
+                        name,
+                        price: parseInt(price),
+                        description
+                    };
+                    fetch('http://localhost:5000/services', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(addNewService)
+                    })
+                        .then(res => {
+                            if (res.status === 401 || res.status === 403) {
+                                logOut();
+                                localStorage.removeItem('accessToken');
+                                navigate('/login')
+                            }
+                            return res.json()
+                        })
+                        .then(result => {
+                            if (result.insertedId) {
+                                form.reset();
+                                swal({
+                                    title: "Service added successfully.",
+                                    icon: "success",
+                                    timer: 5000
+                                });
+                                navigate('/dashboard/manage-services');
+                            }
+                        })
+                }
+            })
     };
 
     return (
@@ -35,14 +82,10 @@ const AddService = () => {
             </div>
             <div className='mt-lg-5 bg-light p-4 pb-lg-4 p-lg-5 rounded-2'>
                 <h2 className='dashboard-form-title'>Add Service<CiEdit /></h2>
-
                 <Form onSubmit={handleSubmit}>
-
-
-
-
                     <div class="input-group mb-3">
                         <input
+                            onChange={handleFileChange}
                             name='image'
                             type="file"
                             className="form-control"
@@ -54,10 +97,6 @@ const AddService = () => {
                             <span>Upload image</span>
                         </label>
                     </div>
-
-
-
-
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control
                             name='name'
@@ -66,7 +105,6 @@ const AddService = () => {
                             required
                         />
                     </Form.Group>
-
                     <Form.Group className="mb-3" controlId="formBasicPrice">
                         <Form.Control
                             name='price'
@@ -75,7 +113,6 @@ const AddService = () => {
                             required
                         />
                     </Form.Group>
-
                     <Form.Group className="mb-3" controlId="formBasicDescription">
                         <Form.Control
                             as="textarea"
@@ -86,10 +123,8 @@ const AddService = () => {
                             required
                         />
                     </Form.Group>
-
                     <Button className='submit-button py-2 text-uppercase fw-medium ' type="submit">Save</Button>
                 </Form>
-
             </div>
         </div>
     );

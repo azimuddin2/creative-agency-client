@@ -75,7 +75,7 @@ const Dashboard = () => {
                                                         </ActiveLink>
                                                     </li>
                                                     <li className='mb-3'>
-                                                        <ActiveLink to='/dashboard/service-list'>
+                                                        <ActiveLink to='/dashboard/manage-services'>
                                                             <GoTasklist className='fs-5' />
                                                             <span className='ms-2'>Manage Services</span>
                                                         </ActiveLink>
