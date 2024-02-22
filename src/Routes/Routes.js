@@ -11,6 +11,7 @@ import AddReview from "../Pages/Dashboard/UserPages/AddReview/AddReview";
 import AllUser from "../Pages/Dashboard/AdminPages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import AddService from "../Pages/Dashboard/AdminPages/AddService/AddService";
+import ManageServices from "../Pages/Dashboard/AdminPages/ManageServices/ManageServices";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'add-service',
                 element: <AdminRoute><AddService></AddService></AdminRoute>
+            },
+            {
+                path: 'manage-services',
+                element: <AdminRoute><ManageServices></ManageServices></AdminRoute>
             },
 
             // user related route
