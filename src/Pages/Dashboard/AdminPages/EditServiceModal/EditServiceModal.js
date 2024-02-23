@@ -1,8 +1,45 @@
 import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import swal from 'sweetalert';
 
-const EditServiceModal = ({ service, showModal, handleClose }) => {
-    const { image, name, price, description } = service;
+const EditServiceModal = ({ service, showModal, handleClose, refetch }) => {
+    const { _id, image, name, price, description } = service;
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const image = form.image.value;
+        const name = form.name.value;
+        const price = form.price.value;
+        const description = form.description.value;
+
+        const updateServiceInfo = {
+            image,
+            name,
+            price,
+            description
+        };
+        fetch(`http://localhost:5000/services/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(updateServiceInfo)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.acknowledged) {
+                    refetch();
+                    handleClose(false);
+                    swal({
+                        title: `Service updated successfully.`,
+                        icon: 'success',
+                        timer: 5000
+                    })
+                }
+            })
+    };
 
     return (
         <Modal
@@ -17,7 +54,6 @@ const EditServiceModal = ({ service, showModal, handleClose }) => {
             <Modal.Header className='align-items-start' closeButton></Modal.Header>
             <Modal.Body>
                 <div className='row'>
-
                     <div className='d-grid col-12 col-lg-6'>
                         <div className='text-center'>
                             <img src={image} alt="" style={{ width: '100px' }} />
@@ -26,14 +62,12 @@ const EditServiceModal = ({ service, showModal, handleClose }) => {
                             <p>{description}</p>
                         </div>
                     </div>
-
                     <div className='d-grid col-12 col-lg-6'>
-                        <Form>
-
-                            <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3" controlId="formBasicImage">
                                 <Form.Control
-                                    value={image}
-                                    name='name'
+                                    defaultValue={image}
+                                    name='image'
                                     type="text"
                                     placeholder="Image URL"
                                     required
@@ -42,17 +76,17 @@ const EditServiceModal = ({ service, showModal, handleClose }) => {
 
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Control
-                                    value={name}
+                                    defaultValue={name}
                                     name='name'
                                     type="text"
-                                    placeholder="Service name"
+                                    placeholder="Service Name"
                                     required
                                 />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPrice">
                                 <Form.Control
-                                    value={price}
+                                    defaultValue={price}
                                     name='price'
                                     type="number"
                                     placeholder="Price"
@@ -62,7 +96,7 @@ const EditServiceModal = ({ service, showModal, handleClose }) => {
 
                             <Form.Group className="mb-3" controlId="formBasicDescription">
                                 <Form.Control
-                                    value={description}
+                                    defaultValue={description}
                                     as="textarea"
                                     rows='5'
                                     name='description'
@@ -80,7 +114,6 @@ const EditServiceModal = ({ service, showModal, handleClose }) => {
                             </Button>
                         </Form>
                     </div>
-
                 </div>
             </Modal.Body>
         </Modal>

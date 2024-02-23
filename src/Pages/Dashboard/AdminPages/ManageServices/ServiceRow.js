@@ -109,6 +109,7 @@ const ServiceRow = ({ index, service, refetch }) => {
                 service={service}
                 showModal={showModal}
                 handleClose={handleClose}
+                refetch={refetch}
             ></EditServiceModal>
         </tr>
     );
