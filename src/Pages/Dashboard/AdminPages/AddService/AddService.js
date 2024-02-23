@@ -101,7 +101,7 @@ const AddService = () => {
                         <Form.Control
                             name='name'
                             type="text"
-                            placeholder="Service name"
+                            placeholder="Service Name"
                             required
                         />
                     </Form.Group>

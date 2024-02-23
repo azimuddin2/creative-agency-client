@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import { CiEdit } from 'react-icons/ci';
 import swal from 'sweetalert';
 
 const EditServiceModal = ({ service, showModal, handleClose, refetch }) => {
@@ -51,7 +52,9 @@ const EditServiceModal = ({ service, showModal, handleClose, refetch }) => {
             centered
             size='lg'
         >
-            <Modal.Header className='align-items-start' closeButton></Modal.Header>
+            <Modal.Header className='align-items-start' closeButton>
+                <h2 className='dashboard-form-title mb-0 fs-5'>Edit Service<CiEdit /></h2>
+            </Modal.Header>
             <Modal.Body>
                 <div className='row'>
                     <div className='d-grid col-12 col-lg-6'>
@@ -107,7 +110,7 @@ const EditServiceModal = ({ service, showModal, handleClose, refetch }) => {
                             </Form.Group>
 
                             <Button
-                                className='submit-button py-2 text-uppercase fw-medium '
+                                className='submit-button py-2 text-uppercase'
                                 type="submit"
                             >
                                 Update

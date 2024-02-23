@@ -12,6 +12,7 @@ import AllUser from "../Pages/Dashboard/AdminPages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import AddService from "../Pages/Dashboard/AdminPages/AddService/AddService";
 import ManageServices from "../Pages/Dashboard/AdminPages/ManageServices/ManageServices";
+import EditProfile from "../Pages/Dashboard/OtherPages/EditProfile/EditProfile";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: 'add-review',
                 element: <AddReview></AddReview>
+            },
+            {
+                path: 'edit-profile',
+                element: <EditProfile></EditProfile>
             }
         ],
     },
