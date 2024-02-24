@@ -13,6 +13,7 @@ import AdminRoute from "./AdminRoute";
 import AddService from "../Pages/Dashboard/AdminPages/AddService/AddService";
 import ManageServices from "../Pages/Dashboard/AdminPages/ManageServices/ManageServices";
 import EditProfile from "../Pages/Dashboard/OtherPages/EditProfile/EditProfile";
+import AdminHome from "../Pages/Dashboard/AdminPages/AdminHome/AdminHome";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
+                path: '/dashboard',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+            },
+            {
                 path: 'all-user',
                 element: <AdminRoute><AllUser></AllUser></AdminRoute>
             },
@@ -49,10 +54,9 @@ const router = createBrowserRouter([
                 path: 'manage-services',
                 element: <AdminRoute><ManageServices></ManageServices></AdminRoute>
             },
-
             // user related route
             {
-                path: '/dashboard',
+                path: 'service-list',
                 element: <ServiceList></ServiceList>
             },
             {

@@ -6,9 +6,11 @@ import './Header.css';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { CgLogIn } from "react-icons/cg";
+import useAdmin from '../../../hooks/useAdmin';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email);
 
     const handleLogout = () => {
         logOut()
@@ -33,7 +35,16 @@ const Header = () => {
                         <Nav.Link href="/#project">Our Portfolio</Nav.Link>
                         <Nav.Link href="/#services">Our Services</Nav.Link>
                         <Nav.Link href="/#contact">Contact Us</Nav.Link>
-                        <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                        {
+                            isAdmin ?
+                                (
+                                    <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                                )
+                                :
+                                (
+                                    <Nav.Link as={Link} to="/dashboard/service-list">Dashboard</Nav.Link>
+                                )
+                        }
                         {
                             user?.uid ?
                                 (

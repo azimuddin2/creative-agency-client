@@ -84,7 +84,7 @@ const Dashboard = () => {
                                                 :
                                                 <>
                                                     <li className='mb-3'>
-                                                        <ActiveLink to='/dashboard'>
+                                                        <ActiveLink to='/dashboard/service-list'>
                                                             <GoTasklist className='fs-5' />
                                                             <span className='ms-2'>Service List</span>
                                                         </ActiveLink>
