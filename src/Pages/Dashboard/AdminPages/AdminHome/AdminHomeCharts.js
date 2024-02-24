@@ -119,7 +119,7 @@ const AdminHomeCharts = () => {
             value: 3500,
         },
         {
-            name: 'Nv',
+            name: 'Nov',
             value: 8500,
         },
         {
@@ -130,9 +130,7 @@ const AdminHomeCharts = () => {
 
     return (
         <div className='charts-section'>
-
-
-            <div className='bg-light p-4'>
+            <div className='bg-light p-4 rounded-2'>
                 <div className='border-bottom'>
                     <h1 style={{ fontFamily: "Roboto Condensed" }} className='fs-4'>Overview 2023 Year</h1>
                 </div>
@@ -157,12 +155,7 @@ const AdminHomeCharts = () => {
                     </BarChart>
                 </ResponsiveContainer>
             </div>
-
-
-
-
-
-            <div className='bg-light p-4'>
+            <div className='bg-light p-4 rounded-2'>
                 <div className='border-bottom'>
                     <h1 style={{ fontFamily: "Roboto Condensed" }} className='fs-4'>Service Sales Overview</h1>
                 </div>
@@ -183,8 +176,6 @@ const AdminHomeCharts = () => {
                     </PieChart>
                 </ResponsiveContainer>
             </div>
-
-
         </div>
     );
 };

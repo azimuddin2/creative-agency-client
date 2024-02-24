@@ -4,7 +4,7 @@
     gap: 16px;
 }
 
-.charts-section{
+.charts-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -17,7 +17,7 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .charts-section{
+    .charts-section {
         grid-template-columns: repeat(1, 1fr);
     }
 

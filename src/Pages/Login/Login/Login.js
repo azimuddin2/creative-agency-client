@@ -8,9 +8,11 @@ import { toast } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../../../assets/logos/logo.png';
 import useToken from '../../../hooks/useToken';
+import swal from 'sweetalert';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const [adminAccess, setAdminAccess] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     const [accepted, setAccepted] = useState(false);
 
@@ -60,6 +62,16 @@ const Login = () => {
 
     if (token) {
         navigate(from, { replace: true });
+    }
+
+    if (adminAccess === true) {
+        swal({
+            title: "Admin Access🔐",
+            text: "📧Email: adminaccess@gmail.com & 🔑Password: 1234567@",
+            icon: "info",
+            button: "Close",
+        });
+        setAdminAccess(false);
     }
 
     return (
