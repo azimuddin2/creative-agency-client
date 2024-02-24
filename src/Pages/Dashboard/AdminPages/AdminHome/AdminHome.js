@@ -6,6 +6,7 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import CountUp from 'react-countup';
 import './AdminHome.css'
+import AdminHomeCharts from './AdminHomeCharts';
 
 const AdminHome = () => {
     const { user } = useContext(AuthContext);
@@ -84,6 +85,10 @@ const AdminHome = () => {
 
 
 
+            </div>
+
+            <div className='mt-4'>
+                <AdminHomeCharts></AdminHomeCharts>
             </div>
 
         </div>

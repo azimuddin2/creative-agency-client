@@ -4,10 +4,21 @@
     gap: 16px;
 }
 
+.charts-section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
 
 /* responsive mobile device */
 @media only screen and (max-width: 576px) {
     .admin-home-information {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .charts-section{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }
